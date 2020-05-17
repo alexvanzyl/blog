@@ -4,15 +4,18 @@ backend:
 media_folder: static/uploads
 public_folder: /uploads
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
+  - name: 'posts'
+    label: 'Posts'
+    folder: 'content/posts'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     editor:
       preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Author', name: 'author', widget: 'hidden', default: 'Alexander van Zyl'}
+      - { label: 'Tags', name: 'tags', widget: 'list'}
+      - { label: 'Featured Image', name: 'featuredImage', widget: 'image'}
       - { label: 'Body', name: 'body', widget: 'markdown' }
