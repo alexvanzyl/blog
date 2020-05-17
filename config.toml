@@ -1,2 +1,3 @@
+baseURL = "http://example.org/"
 languageCode = "en-us"
-title = "My New Netlify Victor Hugo Site"
+title = "My New Hugo Site"
