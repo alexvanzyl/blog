@@ -7,4 +7,15 @@ tags:
   - test
 featuredImage: /uploads/featured-image.png
 ---
-# Article with author
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+```
+
+![](/uploads/featured-image.png)
