@@ -10,11 +10,9 @@ This article offers a sample of basic Markdown syntax that can be used in Hugo c
 
 <!--more-->
 
-{{< admonition >}}
-This article is a shameful copy of the great [Grav original page](http://learn.getgrav.org/content/markdown).
+{{< admonition >}} This article is a shameful copy of the great [Grav original page](http://learn.getgrav.org/content/markdown).
 
-If you want to know about the extented Markdown syntax of **LoveIt** theme, please read [extended Markdown syntax page](../theme-documentation-content#extended-markdown-syntax).
-{{< /admonition >}}
+If you want to know about the extented Markdown syntax of **LoveIt** theme, please read [extended Markdown syntax page](../theme-documentation-content#extended-markdown-syntax). {{< /admonition >}}
 
 Let's face it: Writing content for the Web is tiresome. WYSIWYG editors help alleviate this task, but they generally result in horrible code, or worse yet, ugly web pages.
 
@@ -31,18 +29,16 @@ Some of the key benefits are:
 
 John Gruber, the author of Markdown, puts it like this:
 
-> The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible.
-> The idea is that a Markdown-formatted document should be publishable as-is, as plain text,
+> The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible. The idea is that a Markdown-formatted document should be publishable as-is, as plain text,
 > without looking like it’s been marked up with tags or formatting instructions.
 > While Markdown’s syntax has been influenced by several existing text-to-HTML filters,
 > the single biggest source of inspiration for Markdown’s syntax is the format of plain text email.
 >
-> {{< style "text-align: right;" >}}-- _John Gruber_{{< /style >}}
+> {{< style "text-align: right;" >}}-- *John Gruber*{{< /style >}}
 
 Without further delay, let us go over the main elements of Markdown and what the resulting HTML looks like!
 
-{{< admonition tip >}}
-:(far fa-bookmark fa-fw): Bookmark this page for easy future reference!
+{{< admonition tip >}} :(far fa-bookmark fa-fw): Bookmark this page for easy future reference!
 {{< /admonition >}}
 
 ## 1 Headings
@@ -67,8 +63,7 @@ The HTML looks like this:
 <h6>h6 Heading</h6>
 ```
 
-{{< admonition note "Heading IDs" >}}
-To add a custom heading ID, enclose the custom ID in curly braces on the same line as the heading:
+{{< admonition note "Heading IDs" >}} To add a custom heading ID, enclose the custom ID in curly braces on the same line as the heading:
 
 ```markdown
 ### A Great Heading {#custom-id}
@@ -79,6 +74,7 @@ The HTML looks like this:
 ```html
 <h3 id="custom-id">A Great Heading</h3>
 ```
+
 {{< /admonition >}}
 
 ## 2 Comments
@@ -99,8 +95,7 @@ This is a comment
 
 ## 3 Horizontal Rules
 
-The HTML `<hr>` element is for creating a "thematic break" between paragraph-level elements.
-In Markdown, you can create a `<hr>` with any of the following:
+The HTML `<hr>` element is for creating a "thematic break" between paragraph-level elements. In Markdown, you can create a `<hr>` with any of the following:
 
 * `___`: three consecutive underscores
 * `---`: three consecutive dashes
@@ -108,9 +103,11 @@ In Markdown, you can create a `<hr>` with any of the following:
 
 The rendered output looks like this:
 
-___
----
-***
+- - -
+
+- - -
+
+- - -
 
 ## 4 Body Copy
 
@@ -169,7 +166,7 @@ The HTML looks like this:
 
 For emphasizing a snippet of text with italics.
 
-The following snippet of text is _rendered as italicized text_.
+The following snippet of text is *rendered as italicized text*.
 
 ```markdown
 *rendered as italicized text*
@@ -184,7 +181,7 @@ The HTML looks like this:
 
 ### Strikethrough
 
-In [[GFM]^(GitHub flavored Markdown)](https://github.github.com/gfm/) you can do strikethroughs.
+In [\[GFM]^(GitHub flavored Markdown)](https://github.github.com/gfm/) you can do strikethroughs.
 
 ```markdown
 ~~Strike through this text.~~
@@ -265,10 +262,9 @@ odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac 
 
 The rendered output looks like this:
 
-> Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue.
-Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.
->> Sed adipiscing elit vitae augue consectetur a gravida nunc vehicula. Donec auctor
-odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac eu diam.
+> Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue. Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.
+>
+> > Sed adipiscing elit vitae augue consectetur a gravida nunc vehicula. Donec auctor odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac eu diam.
 
 ## 8 Lists
 
@@ -308,6 +304,7 @@ The rendered output looks like this:
 * Integer molestie lorem at massa
 * Facilisis in pretium nisl aliquet
 * Nulla volutpat aliquam velit
+
   * Phasellus iaculis neque
   * Purus sodales ultricies
   * Vestibulum laoreet porttitor sem
@@ -379,8 +376,7 @@ The HTML looks like this:
 </ol>
 ```
 
-{{< admonition tip >}}
-If you just use `1.` for each number, Markdown will automatically number each item. For example:
+{{< admonition tip >}} If you just use `1.` for each number, Markdown will automatically number each item. For example:
 
 ```markdown
 1. Lorem ipsum dolor sit amet
@@ -396,14 +392,13 @@ If you just use `1.` for each number, Markdown will automatically number each it
 The rendered output looks like this:
 
 1. Lorem ipsum dolor sit amet
-1. Consectetur adipiscing elit
-1. Integer molestie lorem at massa
-1. Facilisis in pretium nisl aliquet
-1. Nulla volutpat aliquam velit
-1. Faucibus porta lacus fringilla vel
-1. Aenean sit amet erat nunc
-1. Eget porttitor lorem
-{{< /admonition >}}
+2. Consectetur adipiscing elit
+3. Integer molestie lorem at massa
+4. Facilisis in pretium nisl aliquet
+5. Nulla volutpat aliquam velit
+6. Faucibus porta lacus fringilla vel
+7. Aenean sit amet erat nunc
+8. Eget porttitor lorem {{< /admonition >}}
 
 ### Task Lists
 
@@ -417,9 +412,9 @@ Task lists allow you to create a list of items with checkboxes. To create a task
 
 The rendered output looks like this:
 
-- [x] Write the press release
-- [ ] Update the website
-- [ ] Contact the media
+* Write the press release
+* Update the website
+* Contact the media
 
 ## 9 Code
 
@@ -456,10 +451,12 @@ Or indent several lines of code by at least four spaces, as in:
 
 The rendered output looks like this:
 
-    // Some comments
-    line 1 of code
-    line 2 of code
-    line 3 of code
+```
+// Some comments
+line 1 of code
+line 2 of code
+line 3 of code
+```
 
 The HTML looks like this:
 
@@ -476,12 +473,14 @@ The HTML looks like this:
 
 ### Block Fenced Code
 
-Use "fences" <code>```</code> to block in multiple lines of code with a language attribute.
+Use "fences" <code>`</code> to block in multiple lines of code with a language attribute.
 
 {{< highlight markdown >}}
+
 ```markdown
 Sample text here...
 ```
+
 {{< / highlight >}}
 
 The HTML looks like this:
@@ -494,14 +493,14 @@ The HTML looks like this:
 
 ### Syntax Highlighting
 
-[GFM]^(GitHub Flavored Markdown) also supports syntax highlighting.
+\[GFM]^(GitHub Flavored Markdown) also supports syntax highlighting.
 
-To activate it, simply add the file extension of the language you want to use directly after the first code "fence",
-<code>```js</code>, and syntax highlighting will automatically be applied in the rendered HTML.
+To activate it, simply add the file extension of the language you want to use directly after the first code "fence", <code>`js</code>, and syntax highlighting will automatically be applied in the rendered HTML.
 
 For example, to apply syntax highlighting to JavaScript code:
 
 {{< highlight markdown >}}
+
 ```js
 grunt.initConfig({
   assemble: {
@@ -522,6 +521,7 @@ grunt.initConfig({
   }
 };
 ```
+
 {{< / highlight >}}
 
 The rendered output looks like this:
@@ -547,9 +547,7 @@ grunt.initConfig({
 };
 ```
 
-{{< admonition >}}
-[Syntax highlighting page](https://gohugo.io/content-management/syntax-highlighting/) in **Hugo** Docs introduces more about syntax highlighting, including highlight shortcode.
-{{< /admonition >}}
+{{< admonition >}} [Syntax highlighting page](https://gohugo.io/content-management/syntax-highlighting/) in **Hugo** Docs introduces more about syntax highlighting, including highlight shortcode. {{< /admonition >}}
 
 ## 10 Tables
 
@@ -565,11 +563,11 @@ Tables are created by adding pipes as dividers between each cell, and by adding 
 
 The rendered output looks like this:
 
-| Option | Description |
-| ------ | ----------- |
+| Option | Description                                                               |
+| ------ | ------------------------------------------------------------------------- |
 | data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
+| engine | engine to be used for processing templates. Handlebars is the default.    |
+| ext    | extension to be used for dest files.                                      |
 
 The HTML looks like this:
 
@@ -598,8 +596,7 @@ The HTML looks like this:
 </table>
 ```
 
-{{< admonition note "Right or center aligned text" >}}
-Adding a colon on the right side of the dashes below any heading will right align text for that column.
+{{< admonition note "Right or center aligned text" >}} Adding a colon on the right side of the dashes below any heading will right align text for that column.
 
 Adding colons on both sides of the dashes below any heading will center align text for that column.
 
@@ -613,11 +610,12 @@ Adding colons on both sides of the dashes below any heading will center align te
 
 The rendered output looks like this:
 
-| Option | Description |
-|:------:| -----------:|
+| Option | Description                                                               |
+| ------ | ------------------------------------------------------------------------- |
 | data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
+| engine | engine to be used for processing templates. Handlebars is the default.    |
+| ext    | extension to be used for dest files.                                      |
+
 {{< /admonition >}}
 
 ## 11 Links {#links}
@@ -634,7 +632,7 @@ The rendered output looks like this (hover over the link, there is no tooltip):
 
 <https://assemble.io>
 
-<contact@revolunet.com>
+[contact@revolunet.com](mailto:contact@revolunet.com)
 
 [Assemble](https://assemble.io)
 
@@ -686,8 +684,7 @@ Content for chapter one.
 Content for chapter one.
 ```
 
-{{< admonition >}}
-The specific placement of the anchor tag seems to be arbitrary. They are placed inline here since it seems to be unobtrusive, and it works.
+{{< admonition >}} The specific placement of the anchor tag seems to be arbitrary. They are placed inline here since it seems to be unobtrusive, and it works.
 {{< /admonition >}}
 
 ## 12 Footnotes
@@ -710,8 +707,7 @@ This is a digital footnote[^1].
 
 This is a footnote with "label"[^label]
 
-[^1]: This is a digital footnote
-[^label]: This is a footnote with "label"
+[^1]: This is a digital footnote [^label]: This is a footnote with "label"
 
 ## 13 Images
 
@@ -737,7 +733,7 @@ Like links, images also have a footnote style syntax:
 ![Alt text][id]
 ```
 
-![Alt text][id]
+![Alt text](https://octodex.github.com/images/dojocat.jpg "The Dojocat")
 
 With a reference later in the document defining the URL location:
 
@@ -745,8 +741,4 @@ With a reference later in the document defining the URL location:
 [id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
 ```
 
-[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
-
-{{< admonition tip >}}
-**LoveIt** theme has [special shortcode for image](../theme-documentation-extended-shortcodes#image), which provides more features.
-{{< /admonition >}}
+{{< admonition tip >}} **LoveIt** theme has [special shortcode for image](../theme-documentation-extended-shortcodes#image), which provides more features. {{< /admonition >}}
