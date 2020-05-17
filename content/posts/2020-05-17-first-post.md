@@ -131,6 +131,7 @@ A **line break** can be done with one blank line.
 
 ## 5 Inline HTML
 
+
 If you need a certain HTML tag (with a class) you can simply use HTML:
 
 ```html
