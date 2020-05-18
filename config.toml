@@ -1,6 +1,7 @@
 baseURL = "https://alexvanzyl.com/"
 languageCode = "en-us"
 title = "Alexander van Zyl"
+enableEmoji = true
 
 # Change the default theme to be use when building the site with Hugo
 theme = "LoveIt"
@@ -68,9 +69,9 @@ theme = "LoveIt"
     # LoveIt CHANGED | 0.2.7 title shown in home page (HTML format is supported)
     title = ""
     # subtitle shown in home page
-    subtitle = "Hi, I'm Alex, I have an unhealthy obsession for web technologies and here's where I share them with you :)"
+    subtitle = "Hi, I'm Alex. A software engineer with an unhealthy obsession for web technologies. I love learning new things and sharing everything a pick up on the way. Stick around and hopefully you find something useful :)"
     # whether to use typeit animation for subtitle
-    typeit = true
+    typeit = false
     # whether to show social links
     social = true
     # LoveIt NEW | 0.2.0 disclaimer (HTML format is supported)
