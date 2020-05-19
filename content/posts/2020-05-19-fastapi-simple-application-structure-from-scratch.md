@@ -40,7 +40,7 @@ cd app
 
 The directory structure should look like the below.
 
-```shell
+```
 .
 ├── app
 │   └── __init__.py
@@ -146,6 +146,8 @@ We will come back later and update `main.py` but for now let's hit `Ctrl+C` in t
 
 Next let's create the `db.py` under the same directory. This file will contain our database session and a base class that all models will extend form.
 
+### db.py
+
 `app/db.py`
 ```python
 from sqlalchemy import create_engine
@@ -165,6 +167,8 @@ You can read more about the `sessionmaker` function [here](https://docs.sqlalche
 {{< /admonition >}}
 
 You may have notice we import `settings` from `config` but we haven't actually created that file yet, so let's do so now.
+
+### config.py
 
 `app/config.py`
 ```python
@@ -209,7 +213,11 @@ Here we are making use of Pydantic's  [settings management](https://pydantic-doc
 ```shell
 poetry add python-dotenv
 ```
+
 And now we will the create `.env` file at the root of the project directory.
+
+### .env
+
 `.env`
 ```
 # Postgres
@@ -220,6 +228,8 @@ POSTGRES_DB=app
 ```
 Make sure to edit this file to reflect your set up. 
 
+### .gitignore
+
 Since the `.env` file can contain sensitive information we wouldn't want to commit this to version control. So now would probably be a good time to add a `.gitignore` file to our project. We will copy the Python `.gitignore` template provided by GitHub [here](https://github.com/github/gitignore/blob/master/Python.gitignore).
 `.gitignore`
 ```shell
@@ -228,6 +238,8 @@ mv Python.gitignore .gitignore
 ```
 
 Next we will create a `models.py` and `schemas.py` file. 
+
+### models.py
 
 The `models.py` file will contain all our models that extend from the SQLAlchemy `Base` class we defined in `db.py` We will create that file now with an example `User` model.
 
@@ -250,6 +262,8 @@ class User(Base):
     password = Column(String, nullable=False)
 
 ```
+
+### schemas.py
 
 Let's create the `schemas.py` file now. This file will contain all our [Pydantic models](https://pydantic-docs.helpmanual.io/usage/models/). Under the hood FastAPI make use of these models to validate the incoming request body, parse the response body and generate [automatic docs](https://fastapi.tiangolo.com/tutorial/body/#automatic-docs) for our API. Really cool, at least I think so!  :ok_hand:
 
@@ -295,6 +309,8 @@ class PostInDB(PostInDBBase):
 
 ```
 The final file we will create for now is the `actions.py` file. This file will contain all our use cases or actions that will be performed, such as CRUD operations.
+
+### actions.py
 
 `app/actions.py`
 ```python
@@ -487,7 +503,7 @@ def delete_post(*, db: Session = Depends(get_db), id: UUID4) -> Any:
 
 ```
 
-Finally if we run the server again and hit [http://127.0.0.1:8000/doc](http://127.0.0.1:8000/doc) we now have a basic API that can perform CRUD operations on our Post entity. :rocket:
+Finally if we run the server again and hit [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) we now have a basic API that can perform CRUD operations on our Post entity. :rocket:
 
 ```shell
 uvicorn app.main:app
@@ -498,8 +514,8 @@ uvicorn app.main:app
 ## Conclusion :bulb:
 If you have made it this far, well done! :+1: 
 
-We created a simple application that can serve as a good starting point for small to medium projects. There are still a number of things we can include in this base project, such as migrations or adding Docker to our stack. (*Hint: we will cover this in future posts, stay tuned :wink:*)
+We created a simple application that can serve as a good starting point for small to medium projects. There are still a number of things we can include in this base project such as migrations or adding Docker to our stack. (*Hint: we will cover this in future posts, stay tuned :wink:*)
 
-The final code for this project can be found on [GitHub]().
+The final code for this project can be found on [GitHub](https://github.com/alexvanzyl/fastapi-simple-app-example).
 
 If you enjoyed reading this article and would like to stay tuned for more, or just want to connect, follow me on twitter [@alexvanzyl](https://twitter.com/alexvanzyl).

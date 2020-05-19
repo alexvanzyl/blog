@@ -6,10 +6,6 @@ enableEmoji = true
 # Change the default theme to be use when building the site with Hugo
 theme = "LoveIt"
 
-[params]
-  # LoveIt theme version
-  version = "0.2.X"
-
 [menu]
   [[menu.main]]
     identifier = "posts"
@@ -35,54 +31,67 @@ theme = "LoveIt"
     # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
     noClasses = false
 
+[params]
+  # LoveIt theme version
+  version = "0.2.X"
 
- # Header config
-[params.header]
-  # desktop header mode ("fixed", "normal", "auto")
-  desktopMode = "fixed"
-  # mobile header mode ("fixed", "normal", "auto")
-  mobileMode = "auto"
-  # LoveIt NEW | 0.2.0 Header title config
-  [params.header.title]
-    # URL of the LOGO
-    logo = ""
-    # title name
-    name = "AvZ"
-    # you can add extra information before the name (HTML format is supported), such as icons
-    pre = ""
-    # you can add extra information after the name (HTML format is supported), such as icons
-    post = ""
-    # LoveIt NEW | 0.2.5 whether to use typeit animation for title name
-    typeit = false
+  # Header config
+  [params.header]
+    # desktop header mode ("fixed", "normal", "auto")
+    desktopMode = "fixed"
+    # mobile header mode ("fixed", "normal", "auto")
+    mobileMode = "auto"
+    # LoveIt NEW | 0.2.0 Header title config
+    [params.header.title]
+      # URL of the LOGO
+      logo = ""
+      # title name
+      name = "AvZ"
+      # you can add extra information before the name (HTML format is supported), such as icons
+      pre = ""
+      # you can add extra information after the name (HTML format is supported), such as icons
+      post = ""
+      # LoveIt NEW | 0.2.5 whether to use typeit animation for title name
+      typeit = false
 
-# Home page config
-[params.home]
-  # LoveIt NEW | 0.2.0 amount of RSS pages
-  rss = 10
-  # Home page profile
-  [params.home.profile]
-    enable = true
-    # Gravatar Email for preferred avatar in home page
-    gravatarEmail = ""
-    # URL of avatar shown in home page
-    avatarURL = "https://avatars1.githubusercontent.com/u/4629035?s=460&u=b215019e8c62c5cfbaec3c8447b417089ca10f29&v=4"
-    # LoveIt CHANGED | 0.2.7 title shown in home page (HTML format is supported)
-    title = ""
-    # subtitle shown in home page
-    subtitle = "Hi, I'm Alex. A software engineer with an unhealthy obsession for web technologies. I love learning new things and sharing everything a pick up on the way. Stick around and hopefully you find something useful :)"
-    # whether to use typeit animation for subtitle
-    typeit = false
-    # whether to show social links
-    social = true
-    # LoveIt NEW | 0.2.0 disclaimer (HTML format is supported)
-    disclaimer = ""
-  # Home page posts
-  [params.home.posts]
-    enable = true
-    # special amount of posts in each home posts page
-    paginate = 6
+  # Home page config
+  [params.home]
+    # LoveIt NEW | 0.2.0 amount of RSS pages
+    rss = 10
+    # Home page profile
+    [params.home.profile]
+      enable = true
+      # Gravatar Email for preferred avatar in home page
+      gravatarEmail = ""
+      # URL of avatar shown in home page
+      avatarURL = "https://avatars1.githubusercontent.com/u/4629035?s=460&u=b215019e8c62c5cfbaec3c8447b417089ca10f29&v=4"
+      # LoveIt CHANGED | 0.2.7 title shown in home page (HTML format is supported)
+      title = ""
+      # subtitle shown in home page
+      subtitle = "Hi, I'm Alex. A software engineer with an unhealthy obsession for web technologies. I love learning new things and sharing everything a pick up on the way. Stick around and hopefully you find something useful :)"
+      # whether to use typeit animation for subtitle
+      typeit = false
+      # whether to show social links
+      social = true
+      # LoveIt NEW | 0.2.0 disclaimer (HTML format is supported)
+      disclaimer = ""
+    # Home page posts
+    [params.home.posts]
+      enable = true
+      # special amount of posts in each home posts page
+      paginate = 6
+  
+  # LoveIt CHANGED | 0.2.0 Page config
+  [params.page]
+    # LoveIt CHANGED | 0.2.0 social share links in post page
+    [params.page.share]
+      enable = true
+      Twitter = true
+      Facebook = true
+      Linkedin = true
+      Whatsapp = true
 
-# Social config about the author
+  # Social config about the author
   [params.social]
     GitHub = "alexvanzyl"
     Twitter = "alexvanzyl"
