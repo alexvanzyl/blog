@@ -7,7 +7,7 @@ tags:
   - fastapi
   - python
 featuredImage: /uploads/fastapi-simple-application-structure-from-scratch.jpg
-draft: true
+draft: false
 ---
 In this blog post we will set up a simple [FastAPI](https://fastapi.tiangolo.com/) application from scratch. This can serve as a good starting point for small to medium projects.
 
