@@ -16,7 +16,7 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Author', name: 'author', widget: 'hidden', default: 'Alexander van Zyl'}
+      - { label: 'Author', name: 'author', widget: 'hidden', default: 'Alex van Zyl'}
       - { label: 'Tags', name: 'tags', widget: 'list'}
       - { label: 'Featured Image', name: 'featuredImage', widget: 'image'}
       - { label: "Draft", name: "draft", widget: "boolean", default: true}

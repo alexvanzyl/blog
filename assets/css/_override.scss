@@ -4,3 +4,23 @@
       margin: 0 auto;
     }
 }
+#header-desktop {
+  .header-wrapper {
+    .header-title {
+      font-size: 2.5rem !important;
+    }
+  }
+}
+
+#header-mobile {
+  .header-wrapper {
+    .header-title {
+      font-size: 2rem !important;
+    }
+  }
+}
+
+
+header .logo {
+  vertical-align: text-top !important;
+}
