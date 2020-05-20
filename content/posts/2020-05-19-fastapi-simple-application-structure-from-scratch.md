@@ -2,7 +2,7 @@
 title: "FastAPI: Simple application structure from scratch"
 description: How to scaffold a simple FastAPI project from scratch.
 date: 2020-05-19T20:10:08.832Z
-author: Alexander van Zyl
+author: Alex van Zyl
 tags:
   - fastapi
   - python
@@ -150,20 +150,25 @@ Next let's create the `db.py` under the same directory. This file will contain o
 
 `app/db.py`
 ```python
+from typing import Any
+
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.ext.declarative import as_declarative
 from sqlalchemy.orm import sessionmaker
 
 from .config import settings
 
-engine =  create_engine(settings.SQLALCHEMY_DATABASE_URI, pool_pre_ping=True)
-SessionLocal =  sessionmaker(autocommit=False, autoflush=False, bind=engine)
+engine = create_engine(settings.SQLALCHEMY_DATABASE_URI, pool_pre_ping=True)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-Base =  declarative_base()
+
+@as_declarative()
+class Base:
+    id: Any
 
 ```
 {{< admonition type=info open=true >}}
-You can read more about the `sessionmaker` function [here](https://docs.sqlalchemy.org/en/13/orm/session_basics.html) and `declarative_base` function [here](https://docs.sqlalchemy.org/en/13/orm/extensions/declarative/basic_use.html).
+You can read more about the `sessionmaker` function [here](https://docs.sqlalchemy.org/en/13/orm/session_basics.html) and `as_declarative` decorator [here](https://docs.sqlalchemy.org/en/13/orm/extensions/declarative/api.html#sqlalchemy.ext.declarative.as_declarative).
 {{< /admonition >}}
 
 You may have notice we import `settings` from `config` but we haven't actually created that file yet, so let's do so now.
@@ -220,7 +225,7 @@ And now we will the create `.env` file at the root of the project directory.
 
 `.env`
 ```
-# Postgres
+# PostgreSQL
 POSTGRES_SERVER=localhost
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=password
@@ -246,20 +251,18 @@ The `models.py` file will contain all our models that extend from the SQLAlchemy
 `app/models.py`
 ```python
 from uuid import uuid4
-from sqlalchemy import Column, String
-
+from sqlalchemy import Column, String, Text
 from sqlalchemy.dialects.postgresql import UUID
 
 from .db import Base
 
 
-class User(Base):
-    __tablename__ = "users"
+class Post(Base):
+    __tablename__ = "posts"
 
     id = Column(UUID(as_uuid=True), primary_key=True, index=True, default=uuid4)
-    name = Column(String, index=True)
-    email = Column(String, unique=True, index=True, nullable=False)
-    password = Column(String, nullable=False)
+    title = Column(String)
+    body = Column(Text)
 
 ```
 
@@ -317,10 +320,12 @@ The final file we will create for now is the `actions.py` file. This file will c
 from typing import Any, Dict, Generic, List, Optional, Type, TypeVar, Union
 
 from fastapi.encoders import jsonable_encoder
-from pydantic import BaseModel
+from pydantic import UUID4, BaseModel
 from sqlalchemy.orm import Session
 
+from . import schemas
 from .db import Base
+from .models import Post
 
 # Define custom types for SQLAlchemy model, and Pydantic schemas
 ModelType = TypeVar("ModelType", bound=Base)
@@ -343,7 +348,7 @@ class BaseActions(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
     ) -> List[ModelType]:
         return db.query(self.model).offset(skip).limit(limit).all()
 
-    def get(self, db: Session, id: Any) -> Optional[ModelType]:
+    def get(self, db: Session, id: UUID4) -> Optional[ModelType]:
         return db.query(self.model).filter(self.model.id == id).first()
 
     def create(self, db: Session, *, obj_in: CreateSchemaType) -> ModelType:
@@ -374,17 +379,20 @@ class BaseActions(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
         db.refresh(db_obj)
         return db_obj
 
-    def remove(self, db: Session, *, id: int) -> ModelType:
+    def remove(self, db: Session, *, id: UUID4) -> ModelType:
         obj = db.query(self.model).get(id)
         db.delete(obj)
         db.commit()
         return obj
 
 
-class PostActions(BaseActions):
-    """Post actions with basic CRUD opperations that can be extend"""
+class PostActions(BaseActions[Post, schemas.PostCreate, schemas.PostUpdate]):
+    """Post actions with basic CRUD operations"""
 
     pass
+
+
+post = PostActions(Post)
 
 ```
 
