@@ -11,11 +11,11 @@ images:
 featuredImage: /uploads/fastapi-simple-application-structure-from-scratch.jpg
 draft: false
 ---
-In this blog post we will set up a simple [FastAPI](https://fastapi.tiangolo.com/) application from scratch. This can serve as a good starting point for small to medium projects.
+In this blog post, we will set up a simple [FastAPI](https://fastapi.tiangolo.com/) application from scratch. This can serve as a good starting point for small to medium projects.
 
-## What will we cover? :memo:
+## What will we cover in this post? :memo:
 
--   Generating a base project with [Poetry](https://python-poetry.org/).
+-   Generate a base project with [Poetry](https://python-poetry.org/).
 -   Install **FastAPI**, **SQLAlchemy** and other dependencies.
 -   Create the necessary files that will serve as the base of the application.
 
@@ -56,20 +56,20 @@ Let's quickly go over what we have here.
 
 The `app` directory is our main python package. 
 
-A directory with a `__init__.py` file in it is considered a package in Python. Any `.py` files we add to this directory will be considered modules of this package. Usually this file is empty but in this case Poetry has gone ahead and added `__version__  =  '0.1.0'`.
+A directory with a `__init__.py` file in it is considered a package in Python. Any `.py` files we add to this directory will be considered modules of this package. Usually, this file is empty but in this case, Poetry has gone ahead and added `__version__  =  '0.1.0'`.
 
-The `pyproject.toml` file is where all our dependencies will be added to. Later on when we start installing our dependencies you will notice a `poetry.lock` file will be created, more on that later.
+The `pyproject.toml` file is where all our dependencies will be added to. Later on, when we start installing our dependencies you will notice a `poetry.lock` file will be created, more on that later.
 
-The `README` file can be used to add details about the project or any useful instructions that will help other developers working on project. Personally I prefer writing documentation in Markdown over reStructuredText so I will go ahead and rename `README.rst` to `README.md`. Feel free to do the same or leave it as is.
+The `README` file can be used to add details about the project or any useful instructions that will help other developers working on the project. Personally, I prefer writing documentation in Markdown over reStructuredText so I will go ahead and rename `README.rst` to `README.md`. Feel free to do the same or leave it as is.
 
 ```shell
 mv README.rst README.md
 ```
 
-Finally we have our `tests` directory that contains all out unit tests.
+Finally, we have our `tests` directory that contains all the unit tests.
 
 ##  Install FastAPI and other dependencies :package:
-In this section we will install only the required dependencies to get a basic CRUD ( **C**reate, **R**ead, **U**pdate, **D**elete) application going.
+In this section, we will install only the required dependencies to get a basic CRUD ( **C**reate, **R**ead, **U**pdate, **D**elete) application going.
 
 ### What we will be installing?
 - FastAPI - this goes without saying :slightly_smiling_face:
@@ -95,10 +95,10 @@ poetry add -D mypy sqlalchemy-stubs flake8 autoflake isort black
 ```
 
 {{< admonition type=note open=true >}}
-We have not include `pytest` in the above command as it it usually installed by default when using Poetry to create a new project.
+We have not included `pytest` in the above command as it is usually installed by default when using Poetry to create a new project.
 {{< /admonition >}}
 
-At this point nothing has really changed in our directory structure but you will notice that the `pyproject.toml` file has been update and a new `poetry.lock` file as been created. The `poetry.lock` file locks the installed dependencies to a specific version. This is in particular helpful when multiple developers are working on the same project, to ensure everyone is using the same versions of each package.
+At this point, nothing has really changed in our directory structure but you will notice that the `pyproject.toml` file has been updated and a new `poetry.lock` file has been created. The `poetry.lock` file locks the installed dependencies to a specific version. This is in particular helpful when multiple developers are working on the same project, to ensure everyone is using the same versions of each package.
 
 To recap our directory structure should look something like this now.
 ```
@@ -113,7 +113,7 @@ To recap our directory structure should look something like this now.
     └── test_app.py
 ```
 ## Add project files :page_facing_up:
-In this section we will start adding the files that will make up the base of our application.
+In this section, we will start adding the files that will make up the base of our application.
 
 The first file we will create is the `main.py` file, it will serve as the entry point to our application and house all our routes. Let's create this file now under the `app` package directory.
 
@@ -131,22 +131,22 @@ def index():
     return {"message": "Hello world!"}
  
 ```
-At this point we actually have a basic application that we can run. If we switch back to our terminal and run the following commands.
+At this point, we actually have a basic application that we can run. If we switch back to our terminal and run the following commands.
 ```shell
 poetry shell
 uvicorn app.main:app
 ```
 {{< admonition type=tip open=true >}}
-If you want the sever to reload on file changes you can use the `--reload` flag, like so `uvicorn app.main:app --reload`
+If you want the server to reload on file changes you can use the `--reload` flag, like so `uvicorn app.main:app --reload`
 {{< /admonition >}}
 
 Now if we head over to a browser and hit [http://127.0.0.1:8000](http://127.0.0.1:8000)  we will be greeted with `{"message":"Hello world!"}`.  FastAPI also gives us API documentation out of the box so if you now navigate to [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) you will now see the Swagger UI. Pretty awesome, right! :metal:
 
 ![FastAPI - Swagger UI](uploads/fastapi-simple-app-swagger-ui.png)
 
-We will come back later and update `main.py` but for now let's hit `Ctrl+C` in the terminal to stop Uvicorn and continue adding the rest of our files.
+We will come back later and update the `main.py` file but for now, let's hit `Ctrl+C` in the terminal to stop Uvicorn and continue adding the rest of our files.
 
-Next let's create the `db.py` under the same directory. This file will contain our database session and a base class that all models will extend form.
+Next, let's create the `db.py` under the same directory. This file will contain our database session and a base class that all models will extend from.
 
 ### db.py
 
@@ -173,7 +173,7 @@ class Base:
 You can read more about the `sessionmaker` function [here](https://docs.sqlalchemy.org/en/13/orm/session_basics.html) and `as_declarative` decorator [here](https://docs.sqlalchemy.org/en/13/orm/extensions/declarative/api.html#sqlalchemy.ext.declarative.as_declarative).
 {{< /admonition >}}
 
-You may have notice we import `settings` from `config` but we haven't actually created that file yet, so let's do so now.
+You may have noticed we import `settings` from `config` but we haven't actually created that file yet, so let's do so now.
 
 ### config.py
 
@@ -216,12 +216,12 @@ settings = Settings()
 When loading configurations from a `.env` file the [python-dotenv](https://github.com/theskumar/python-dotenv) package is required.
 {{< /admonition >}}
 
-Here we are making use of Pydantic's  [settings management](https://pydantic-docs.helpmanual.io/usage/settings/). By default the `BaseSettings` class will try to read the environment variables set at system level using [os.environ](https://docs.python.org/3/library/os.html#os.environ). However in our case instead we are specifying that we would like our environment variables to be read from a `.env` file. Pydantic relies on the [python-dotenv](https://github.com/theskumar/python-dotenv) package to achieve this, let's add it as a dependency now.
+Here we are making use of Pydantic's  [settings management](https://pydantic-docs.helpmanual.io/usage/settings/). By default, the `BaseSettings` class will try to read the environment variables set at system level using [os.environ](https://docs.python.org/3/library/os.html#os.environ). However in our case instead we are specifying that we would like our environment variables to be read from a `.env` file. Pydantic relies on the [python-dotenv](https://github.com/theskumar/python-dotenv) package to achieve this, let's add it as a dependency now.
 ```shell
 poetry add python-dotenv
 ```
 
-And now we will the create `.env` file at the root of the project directory.
+And now we will create the `.env` file at the root of the project directory.
 
 ### .env
 
@@ -244,7 +244,7 @@ wget https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore
 mv Python.gitignore .gitignore
 ```
 
-Next we will create a `models.py` and `schemas.py` file. 
+Next, we will create a `models.py` and `schemas.py` file. 
 
 ### models.py
 
@@ -270,7 +270,7 @@ class Post(Base):
 
 ### schemas.py
 
-Let's create the `schemas.py` file now. This file will contain all our [Pydantic models](https://pydantic-docs.helpmanual.io/usage/models/). Under the hood FastAPI make use of these models to validate the incoming request body, parse the response body and generate [automatic docs](https://fastapi.tiangolo.com/tutorial/body/#automatic-docs) for our API. Really cool, at least I think so!  :ok_hand:
+Let's create the `schemas.py` file now. This file will contain all our [Pydantic models](https://pydantic-docs.helpmanual.io/usage/models/). Under the hood, FastAPI makes use of these models to validate the incoming request body, parse the response body and generate [automatic docs](https://fastapi.tiangolo.com/tutorial/body/#automatic-docs) for our API. Really cool, at least I think so!  :ok_hand:
 
 `app/schemas.py`
 ```python
@@ -434,7 +434,7 @@ from starlette.status import HTTP_201_CREATED, HTTP_404_NOT_FOUND
 from . import actions, models, schemas
 from .db import SessionLocal, engine
 
-# Create all tables in database.
+# Create all tables in the database.
 # Comment this out if you using migrations.
 models.Base.metadata.create_all(bind=engine)
 
@@ -513,7 +513,7 @@ def delete_post(*, db: Session = Depends(get_db), id: UUID4) -> Any:
 
 ```
 
-Finally if we run the server again and hit [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) we now have a basic API that can perform CRUD operations on our Post entity. :rocket:
+Finally, if we run the server again and hit [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) we now have a basic API that can perform CRUD operations on our Post entity. :rocket:
 
 ```shell
 uvicorn app.main:app
