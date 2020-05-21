@@ -6,6 +6,8 @@ author: Alex van Zyl
 tags:
   - fastapi
   - python
+images:
+  - /uploads/fastapi-simple-application-structure-from-scratch.jpg
 featuredImage: /uploads/fastapi-simple-application-structure-from-scratch.jpg
 draft: false
 ---
