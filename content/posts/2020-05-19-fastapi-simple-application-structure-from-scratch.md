@@ -13,6 +13,9 @@ draft: false
 ---
 In this blog post, we will set up a simple [FastAPI](https://fastapi.tiangolo.com/) application from scratch. This can serve as a good starting point for small to medium projects.
 
+- Part 1: Laying the foundation (this post)
+- [Part 2]({{< ref "2020-05-24-fastapi-simple-application-structure-from-scratch-part-2.md" >}}): Migrations
+
 ## What will we cover in this post? :memo:
 
 -   Generate a base project with [Poetry](https://python-poetry.org/).
@@ -526,6 +529,6 @@ If you have made it this far, well done! :+1:
 
 We created a simple application that can serve as a good starting point for small to medium projects. There are still a number of things we can include in this base project such as migrations or adding Docker to our stack. (*Hint: we will cover this in future posts, stay tuned :wink:*)
 
-The final code for this project can be found on [GitHub](https://github.com/alexvanzyl/fastapi-simple-app-example).
+The final code for this post can be found on [GitHub](https://github.com/alexvanzyl/fastapi-simple-app-example/tree/part-1).
 
 If you enjoyed reading this article and would like to stay tuned for more, or just want to connect, follow me on twitter [@alexvanzyl](https://twitter.com/alexvanzyl).
