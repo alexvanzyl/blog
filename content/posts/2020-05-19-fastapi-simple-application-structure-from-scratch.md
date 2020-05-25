@@ -13,6 +13,8 @@ draft: false
 ---
 In this blog post, we will set up a simple [FastAPI](https://fastapi.tiangolo.com/) application from scratch. This can serve as a good starting point for small to medium projects.
 
+## Series Content :book:
+
 - Part 1: Laying the foundation (this post)
 - [Part 2]({{< ref "2020-05-24-fastapi-simple-application-structure-from-scratch-part-2.md" >}}): Migrations
 
