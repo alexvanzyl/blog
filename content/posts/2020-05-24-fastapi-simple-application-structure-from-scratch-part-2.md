@@ -17,7 +17,8 @@ Continuing where we left off in part one of this series, we will add migrations 
 ## Series Content :book:  
 
 - [Part 1]({{< ref "2020-05-19-fastapi-simple-application-structure-from-scratch.md" >}}): Laying the foundation  
-- Part 2: Migration (this post)
+- Part 2: Migrations (this post)
+- [Part 3]({{< ref "2020-05-30-fastapi-simple-application-structure-from-scratch-part-3.md" >}}): Dockerize
 
 {{< admonition type=warning title="Before getting started..." open=true >}}  
 To avoid any issues, make sure to drop the posts table from your database and run `poetry install` again.

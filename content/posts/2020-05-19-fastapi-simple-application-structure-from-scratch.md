@@ -17,6 +17,7 @@ In this blog post, we will set up a simple [FastAPI](https://fastapi.tiangolo.co
 
 - Part 1: Laying the foundation (this post)
 - [Part 2]({{< ref "2020-05-24-fastapi-simple-application-structure-from-scratch-part-2.md" >}}): Migrations
+- [Part 3]({{< ref "2020-05-30-fastapi-simple-application-structure-from-scratch-part-3.md" >}}): Dockerize
 
 ## What will we cover in this post? :memo:
 
